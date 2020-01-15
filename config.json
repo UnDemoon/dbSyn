@@ -1,0 +1,17 @@
+{
+     "from":{
+         "host" : "127.0.0.1",
+         "user" : "root",
+         "passwd" : "123456",
+         "db" : "minigame_stat",
+         "charset" : "utf8"
+     },
+     "to":{
+         "host" : "192.168.2.225",
+         "user" : "root",
+         "passwd" : "houyi123456",
+         "db" : "minigame_stat",
+         "charset" : "utf8"
+     },
+     "max_lines" : "200"
+}
