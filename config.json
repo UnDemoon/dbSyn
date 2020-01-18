@@ -1,17 +1,38 @@
 {
      "from":{
-         "host" : "127.0.0.1",
-         "user" : "root",
-         "passwd" : "123456",
+         "host" : "rm-bp11j7ex56770w4h40o.mysql.rds.aliyuncs.com",
+         "user" : "rsync_test",
+         "passwd" : "rsync_test@2020",
          "db" : "minigame_stat",
          "charset" : "utf8"
      },
      "to":{
-         "host" : "192.168.2.225",
+         "host" : "127.0.0.1",
          "user" : "root",
          "passwd" : "houyi123456",
          "db" : "minigame_stat",
          "charset" : "utf8"
      },
-     "max_lines" : "200"
+     "default_max_lines" : 0,
+     "page_size" : 5000,
+     "custom" : {
+        "wx_user_action_record" : 10000,
+        "wx_consumer_report" : 10000,
+        "wx_scene_record_appid" : 10000,
+        "wx_user_device_info" : 10000,
+        "wx_user_info" : 10000,
+        "wx_user_access" : 10000,
+        "wx_app_event" : 10000,
+        "wx_channel_record_appid" : 10000,
+        "wx_report_data" : 10000,
+        "wx_adv_real_click" : 10000,
+        "wx_adv_click_record" : 10000,
+        "wx_app_custom_event_record" : 10000,
+        "wx_channel_record" : 10000,
+        "wx_ip" : 10000,
+        "region" : 10000,
+        "wx_app_custom_event_stat_appid" : 10000,
+        "wx_scene_link_stat_appid" : 10000,
+        "wx_adv_click_stat" : 10000
+     }
 }
