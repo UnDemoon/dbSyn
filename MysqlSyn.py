@@ -17,15 +17,16 @@ warnings.filterwarnings("ignore")
 
 class MysqlSyn(object):
     def __init__(self):
+        scritp, config_path = sys.argv
         self.config = None        #   配置数组
         self.timer_connet = 0     #   尝试链接计数
         self.from_conn = None
         self.to_conn = None
-        self.loadConf();
+        self.loadConf(config_path);
 
     #   配置文件读取
-    def loadConf(self):
-        path = os.path.join(os.path.abspath('.'), 'config.json')
+    def loadConf(self, config_path):
+        path = config_path
         with open(path, encoding='utf-8') as f:
             config = json.load(f)
             self.config = config
@@ -143,4 +144,4 @@ def logFile( msg):
 
 if __name__ == '__main__':
     conn_mysql = MysqlSyn()
-    conn_mysql.dbSyn()
+    # conn_mysql.dbSyn()
