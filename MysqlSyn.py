@@ -144,4 +144,4 @@ def logFile( msg):
 
 if __name__ == '__main__':
     conn_mysql = MysqlSyn()
-    # conn_mysql.dbSyn()
+    conn_mysql.dbSyn()
