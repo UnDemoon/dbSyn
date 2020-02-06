@@ -116,7 +116,7 @@ class MysqlSyn(object):
                                 limit_param = ' limit ' + str(p * page_size + 1) + ',' + str(page_size)
                         else:
                             limit_param = ' limit ' + str(total)
-                        cur.execute('select * from ' + table + limit_param)
+                        cur.execute('select * from ' + table + " order by id desc " + limit_param)
                         inserts = cur.fetchall()
 
                         #   插入数据
