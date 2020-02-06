@@ -91,6 +91,8 @@ class MysqlSyn(object):
             #   根据配置获得实际迁移条目
             if table in self.config['custom']:
                 total = int(self.config['custom'][table])
+                # 大数据量的不同步了，需要的时候自己同步 zhangyue
+                continue
             else:
                 if int(self.config['default_max_lines']) > 0:
                     total = int(self.config['default_max_lines'])
