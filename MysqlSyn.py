@@ -88,17 +88,16 @@ class MysqlSyn(object):
             if table_name is None:
                 cur_local.execute(create_sql)
 
-
-            # 查询需要迁移的数据库表的数据条数
-            cur.execute('select count(*) from ' + table)
-            total ,*_ = cur.fetchone()
-
             #   根据配置获得实际迁移条目
             if table in self.config['custom']:
                 total = int(self.config['custom'][table])
             else:
                 if int(self.config['default_max_lines']) > 0:
                     total = int(self.config['default_max_lines'])
+                else:
+                    # 查询需要迁移的数据库表的数据条数
+                    cur.execute('select count(*) from ' + table)
+                    total ,*_ = cur.fetchone()
 
 
             page_size = int(self.config['page_size'])
