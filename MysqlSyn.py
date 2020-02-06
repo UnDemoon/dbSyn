@@ -125,6 +125,7 @@ class MysqlSyn(object):
                         param = ''
                         for i in range(0, table_col_count):
                             param = param + '%s,'
+                        print('replace into ' + table + ' values (' + param[0:-1] + ')')
                         cur_local.executemany('replace into ' + table + ' values (' + param[0:-1] + ')', inserts)
                         self.to_conn.commit()
                         break
