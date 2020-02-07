@@ -134,6 +134,7 @@ class MysqlSyn(object):
                         time.sleep(60)
                         cur = self.from_conn.cursor()
                         cur_local = self.to_conn.cursor()
+                        break
         cur_local.close()
         self.to_conn.close()
         cur.close()
@@ -147,3 +148,4 @@ def logFile( msg):
 if __name__ == '__main__':
     conn_mysql = MysqlSyn()
     conn_mysql.dbSyn()
+
