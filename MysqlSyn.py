@@ -131,9 +131,9 @@ class MysqlSyn(object):
                         break
                     except Exception as e:
                         logFile(str(e))
-                        time.sleep(60)
-                        cur = self.from_conn.cursor()
-                        cur_local = self.to_conn.cursor()
+                        # time.sleep(60)
+                        # cur = self.from_conn.cursor()
+                        # cur_local = self.to_conn.cursor()
                         break
         cur_local.close()
         self.to_conn.close()
