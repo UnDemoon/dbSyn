@@ -38,7 +38,6 @@
         "wx_app_trend_stat" : 10000,
         "wx_app_custom_event_stat_scene" : 10000,
         "wx_adv_info_stat" : 10000,
-        "wx_channel_stat_appid" : 10000,
         "wx_adv_click_stat_app" : 10000,
         "wx_app_trend_adv_position_stat" : 10000
      }
