@@ -89,17 +89,12 @@ class MysqlSyn(object):
                 cur_local.execute(create_sql)
 
             #   根据配置获得实际迁移条目
-            if table in self.config['custom']:
-                total = int(self.config['custom'][table])
-                # 大数据量的不同步了，需要的时候自己同步 zhangyue
-                continue
-            else:
-                if int(self.config['default_max_lines']) > 0:
-                    total = int(self.config['default_max_lines'])
-                else:
-                    # 查询需要迁移的数据库表的数据条数
-                    cur.execute('select count(*) from ' + table)
-                    total ,*_ = cur.fetchone()
+            if table not in self.config['custom']:
+                continue;
+
+            # 大数据量的不同步了，需要的时候自己同步 zhangyue
+            cur.execute('select count(*) from ' + table)
+            total ,*_ = cur.fetchone()
 
 
             page_size = int(self.config['page_size'])
@@ -148,4 +143,3 @@ def logFile( msg):
 if __name__ == '__main__':
     conn_mysql = MysqlSyn()
     conn_mysql.dbSyn()
-
