@@ -31,7 +31,7 @@ class Migration extends Medoo
             mkdir("/home/backup/{$time}", 0777, TRUE);
         }
         $logPath = "/home/backup/{$time}/" . $tableName . '.sql';
-        system("mysqldump -h{$this->config['servers']['online']['server']} -u{$this->config['servers']['online']['username']} -p{$this->config['servers']['online']['password']} minigame_stat {$tableName} > {$logPath}");
+        system("mysqldump -h{$this->config['servers']['online']['server']} -u{$this->config['servers']['online']['username']} -p{$this->config['servers']['online']['password']} --skip-opt -q minigame_stat {$tableName} > {$logPath}");
 
         if(file_exists($logPath)){
 
