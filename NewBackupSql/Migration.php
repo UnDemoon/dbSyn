@@ -34,7 +34,8 @@ class Migration extends Medoo
         }
         $logPath = "/home/backup/{$time}/" . $tableName . '.sql';
         if(is_file($logPath)  && filesize($logPath) > 0){
-            return '已备份！';
+            echo '已备份！';
+            return;
         }
 
         system("mysqldump -h{$this->config['servers']['online']['server']} -u{$this->config['servers']['online']['username']} -p{$this->config['servers']['online']['password']} --skip-opt -q minigame_stat {$tableName} > {$logPath}");
