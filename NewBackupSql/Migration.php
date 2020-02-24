@@ -27,14 +27,19 @@ class Migration extends Medoo
     }
 
     public function MySQLDump($tableName, $time){
+
+
         if(!is_dir("/home/backup/{$time}")){
             mkdir("/home/backup/{$time}", 0777, TRUE);
         }
         $logPath = "/home/backup/{$time}/" . $tableName . '.sql';
+        if(is_file($logPath)  && filesize($logPath) > 0){
+            return '已备份！';
+        }
+
         system("mysqldump -h{$this->config['servers']['online']['server']} -u{$this->config['servers']['online']['username']} -p{$this->config['servers']['online']['password']} --skip-opt -q minigame_stat {$tableName} > {$logPath}");
 
         if(file_exists($logPath)){
-
             $db = new Medoo([
                 'database_type' => 'mysql',
                 'database_name' => 'minigame_stat',
@@ -42,7 +47,6 @@ class Migration extends Medoo
                 'username'      => $this->config['servers']['online_ddl']['username'],
                 'password'      => $this->config['servers']['online_ddl']['password'],
             ]);
-
             $db->drop($tableName);
         }
     }

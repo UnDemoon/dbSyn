@@ -1,5 +1,5 @@
 <?php
-require_once './Migration.php';
+require_once 'Migration.php';
 
 class UserActionRecordMig extends Migration
 {
