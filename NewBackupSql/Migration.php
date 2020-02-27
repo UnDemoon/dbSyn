@@ -40,7 +40,7 @@ class Migration extends Medoo
 
         system("mysqldump -h{$this->config['servers']['online']['server']} -u{$this->config['servers']['online']['username']} -p{$this->config['servers']['online']['password']} --skip-opt -q minigame_stat {$tableName} > {$logPath}");
 
-        if(file_exists($logPath)){
+        if(file_exists($logPath) && filesize($logPath) > 0){
             $db = new Medoo([
                 'database_type' => 'mysql',
                 'database_name' => 'minigame_stat',
