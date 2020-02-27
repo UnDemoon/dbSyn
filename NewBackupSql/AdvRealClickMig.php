@@ -12,4 +12,5 @@ class AdvRealClickMig extends Migration
 
 
 $c = new AdvRealClickMig();
-$c->migration();
+//$c->migration();
+// 这个表没用 zhangyue 20200227
