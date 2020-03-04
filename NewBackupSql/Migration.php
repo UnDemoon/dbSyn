@@ -39,10 +39,10 @@ class Migration extends Medoo
         }
 
         $sysRes = system("mysqldump -h{$this->config['servers']['online']['server']} -u{$this->config['servers']['online']['username']} -p{$this->config['servers']['online']['password']} --skip-opt -q minigame_stat {$tableName} > {$logPath}", $return_status);
-        print_r($sysRes);
-        if($return_status !== 0){
-            unlink($logPath);
-        }
+//        print_r($sysRes);
+//        if($return_status !== 0){
+//            unlink($logPath);
+//        }
         if(file_exists($logPath) && filesize($logPath) > 0){
             $db = new Medoo([
                 'database_type' => 'mysql',
