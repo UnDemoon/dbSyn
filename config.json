@@ -16,8 +16,8 @@
      "default_max_lines" : 0,
      "page_size" : 5000,
      "custom" : {
-        "wx_channel_output_appid" : 1000000,
-        "wx_channel_stat_appid" : 1000000,
-        "wx_channel_stat_other" : 1000000
+        "wx_adv_app" : 1000000,
+        "wx_adv_settle" : 1000000,
+        "wx_adv_info_stat" : 1000000
      }
 }
